@@ -18,7 +18,7 @@ We can say that the event driven architecure uses asyncronus communication, the 
 
 # The architecture
 
-![Alt text](http://127.0.0.1:8000/figures/figure-1.svg)
+![Alt text](https://github.com/pbakota/csharp-microservices-grpc/blob/main/figures/figure-1.svg)
 
 The demo implements RPC communication between microservices.
 
