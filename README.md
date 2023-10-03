@@ -14,7 +14,7 @@ This architecture requires a message bus. Usually, that is some kind of MQ serve
 
 ### RPC
 
-We can say that the event driven architecure uses asyncronus communication, the RPC (Remote procedure call) method uses synchronus. When you work with RPC calls it almost will look like you are working with local methods. However, if you want to use this kind of comminication you have to have prepared *.proto files and generated client/server stubs. Fortunatelly, .NET has an excellent package that will generate for you automatically the client and the server stubs.
+We can say that the event-driven architecture uses asynchronous communication, and the RPC (Remote procedure call) method uses synchronous. When you work with RPC calls it almost will look like you are working with local methods. However, if you want to use this kind of communication you have to have prepared *.proto files and generated client/server stubs. Fortunately, .NET has an excellent package that will generate for you automatically the client and the server stubs.
 
 # The architecture
 
@@ -22,13 +22,13 @@ We can say that the event driven architecure uses asyncronus communication, the 
 
 The demo implements RPC communication between microservices.
 
-If you compare this architecture with the architecture that uses Event driven desing, you will find they are very simmilar. For RPC implementation I used gRPC with Protobuffer. https://protobuf.dev/
+If you compare this architecture with the architecture that uses Event-driven design, you will find they are very similar. For RPC implementation I used gRPC with Protobuffer. https://protobuf.dev/
 
-Except for the communication, other parts are almost exactly the same. I also implemented a simple API gw again with Ocelot. https://github.com/ThreeMammals/Ocelot. Again just to demonstrate how easy is to have an API gw in front of your microservices.
+Except for the communication, other parts are almost exactly the same. I also implemented a simple API GW again with Ocelot. https://github.com/ThreeMammals/Ocelot. Again just to demonstrate how easy is to have an API GW in front of your microservices.
 
 # Implementation
 
-The whole demo project implemented in .NET 6. with EntityFramework Core, Google Protobuf, and Grpc ASP.NET Core. Each microservice has its own project folder. There is shared project called 'Common, which is shared between all microservices and it contains the common structures. There is another important folder and that is 'Proto', this folder contains all the required *.proto files, used for Protobuffer and Grpc tool to generate stubs. 
+The whole demo project was implemented in .NET 6. with EntityFramework Core, Google Protobuf, and Grpc ASP.NET Core. Each microservice has its own project folder. There is a shared project called 'Common, which is shared between all microservices and contains the common structures. There is another important folder and that is 'Proto', this folder contains all the required *.proto files, used for Protobuffer and Grpc tool to generate stubs. 
 
 The serives are:
 
@@ -38,13 +38,13 @@ The serives are:
 * *Delivery* - The delivery management. Currently only acknolege the delivery.
 * *ApiGW* - Contains the project for API gw
 
-In the folder 'http' in each project you can find HTTP request used by VSCode plugin `REST Client` https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+In the folder 'http' in each project, you can find HTTP requests used by the VSCode plugin `REST Client` https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
 The microservices use SQLite3 databases. Each of them has its own separate databases, to demonstrate that they are completely independent from each other. 
 
 NOTE: For production, you should always use a proper database system.
 
-Also the project contains all required Docker files for deployment.
+Also, the project contains all required Docker files for deployment.
 
 
 # Build & run the project
@@ -62,7 +62,7 @@ To test the whole demo project you have to have all the services up and running.
 
 To package each microservice separately you can use the following targets
 
-`$ make package-all` - Will package all microservices seapratelly into 'release' folder.
+`$ make package-all` - Will package all microservices separately into the 'release' folder.
 `$ make package-orders` - Will package orders microservice
 `$ make package-payments` - Will package payments microservice
 `$ make package-stock` - Will package stock microservice
