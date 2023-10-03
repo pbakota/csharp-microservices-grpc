@@ -29,7 +29,6 @@
 
   <ItemGroup>
     <Protobuf ProtoRoot=".." Link="Protos/Delivery.proto" Include="../Protos/Delivery.proto;../Protos/CustomerOrder.proto" GrpcServices="Server" />
-    <Protobuf ProtoRoot=".." Link="Protos/Stock.proto" Include="../Protos/Stock.proto;../Protos/CustomerOrder.proto" GrpcServices="Client" />
   </ItemGroup>
 
 </Project>
