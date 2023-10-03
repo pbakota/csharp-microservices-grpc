@@ -1,4 +1,5 @@
 
+**/docker/contoso.com.*
 **/db/*.db
 **/data/*.db
 **/releases/**

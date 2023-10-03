@@ -7,9 +7,14 @@ services:
     image: grpc-microservice-orders:dev
     environment:
       - ASPNETCORE_ENVIRONMENT=Release
-      - ASPNETCORE_URLS=http://*:5000
+      - ASPNETCORE_URLS=https://*:5000
+      - Grpc__PaymentsAddress=https://grpc-microservice-payments:5000
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/contoso.com.crt
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/app/contoso.com.key
     volumes:
       - ./data:/app/db
+      - ./contoso.com.crt:/app/contoso.com.crt
+      - ./contoso.com.key:/app/contoso.com.key
     expose:
       - 5000
 
@@ -19,9 +24,14 @@ services:
     image: grpc-microservice-payments:dev
     environment:
       - ASPNETCORE_ENVIRONMENT=Release
-      - ASPNETCORE_URLS=http://*:5000
+      - ASPNETCORE_URLS=https://*:5000
+      - Grpc__StocksAddress=https://grpc-microservice-stock:5000
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/contoso.com.crt
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/app/contoso.com.key
     volumes:
       - ./data:/app/db
+      - ./contoso.com.crt:/app/contoso.com.crt
+      - ./contoso.com.key:/app/contoso.com.key
     expose:
       - 5000
 
@@ -31,9 +41,14 @@ services:
     image: grpc-microservice-stock:dev
     environment:
       - ASPNETCORE_ENVIRONMENT=Release
-      - ASPNETCORE_URLS=http://*:5000
+      - ASPNETCORE_URLS=https://*:5000
+      - Grpc__DeliveriesAddress=https://grpc-microservice-delivery:5000
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/contoso.com.crt
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/app/contoso.com.key
     volumes:
       - ./data:/app/db
+      - ./contoso.com.crt:/app/contoso.com.crt
+      - ./contoso.com.key:/app/contoso.com.key
     expose:
       - 5000
 
@@ -43,9 +58,13 @@ services:
     image: grpc-microservice-delivery:dev
     environment:
       - ASPNETCORE_ENVIRONMENT=Release
-      - ASPNETCORE_URLS=http://*:5000
+      - ASPNETCORE_URLS=https://*:5000
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/contoso.com.crt
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/app/contoso.com.key
     volumes:
       - ./data:/app/db
+      - ./contoso.com.crt:/app/contoso.com.crt
+      - ./contoso.com.key:/app/contoso.com.key
     expose:
       - 5000
 
