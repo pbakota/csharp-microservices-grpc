@@ -7,7 +7,7 @@ Creating a microservice architecture is always a challenging thing. First you ha
 
 ### Event driven architecture
 
-This architecture requires a message bus. Usually that is some kind of MQ server or Kafka. In short: The microservies will communicate with each other by pushing/producing a message into the message bus. Other microservices will consume these messages and they will send the result back to message bus for other services. Also if there is an error in the service the error is also pushed to message bus so the other services will get information about the problem. You can find event driven demo inplementations here:
+This architecture requires a message bus. Usually, that is some kind of MQ server or Kafka. In short: The microservices will communicate with each other by pushing/producing a message into the message bus. Other microservices will consume these messages and they will send the result back to the message bus for other services. Also if there is an error in the service the error is also pushed to message bus so the other services will get information about the problem. You can find event-driven demo implementations here:
 
 * C# : https://github.com/pbakota/mt-microservice-kafka
 * Java: https://github.com/pbakota/java-microservice-kafka
