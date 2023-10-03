@@ -1,0 +1,15 @@
+syntax="proto3";
+
+option csharp_namespace = "Common.Protobuf";
+
+message CustomerOrder {
+    string Item = 1;
+    int32 Quantity = 2;
+    double Amount = 3;
+    string PaymentMethod = 4;
+    int64 OrderId = 5;
+    // NOTE: We make this field optional just because we want to have an easy way to simulate some error at the
+    // end of the workflow. In this way we can just set the address to an empty string "" (null is not a thing for protobuf), 
+    // and then the delivery service will throw an exeception, which will cause that the whole procedure will be reverted.
+    optional string Address = 6;
+}

@@ -1,0 +1,21 @@
+syntax="proto3";
+option csharp_namespace = "Common.Protobuf";
+import "Protos/CustomerOrder.proto";
+
+message Stock {
+    CustomerOrder Order = 1;
+    string Type = 2;
+}
+
+service Stocks {
+    rpc NewPayment (NewPaymentRequest) returns (NewPaymentResponse);
+}
+
+message NewPaymentRequest {
+    CustomerOrder Order = 1;
+}
+
+message NewPaymentResponse {
+    bool Success = 1;
+    string Error = 2;
+}

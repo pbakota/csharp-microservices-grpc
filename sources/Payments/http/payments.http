@@ -1,0 +1,3 @@
+
+### Get latest payment
+GET https://127.0.0.1:5002/payments?top=1

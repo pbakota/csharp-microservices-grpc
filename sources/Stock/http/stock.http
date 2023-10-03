@@ -1,0 +1,14 @@
+### Create stock item
+POST https://127.0.0.1:5003/stock
+Content-Type: application/json
+
+{
+    "Item": "Product 1",
+    "Quantity": 100
+}
+
+### Get single stock item
+GET https://127.0.0.1:5003/stock/Product%201
+
+### Get 5 stock items
+GET https://127.0.0.1:5003/stock?top=5

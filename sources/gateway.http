@@ -1,0 +1,40 @@
+@hostname=http://playbox:5161/gateway
+#@hostname=http://localhost:5000/gateway
+
+### Create order
+POST {{hostname}}/orders
+Content-Type: application/json
+
+{
+    "Item": "Product 1",
+    "Quantity": 1,
+    "Amount": 3,
+    "PaymentMethod": "CreditCard",
+    "Address": "Foo bar 1"
+}
+
+### Get orders
+GET {{hostname}}/orders?top=1
+
+
+### Get latest payment
+GET {{hostname}}/payments?top=1
+
+### Create stock item
+POST {{hostname}}/stock
+Content-Type: application/json
+
+{
+    "Item": "Product 1",
+    "Quantity": 100
+}
+
+### Get single stock item
+GET {{hostname}}/stock/Product%201
+
+### Get 5 stock items
+GET {{hostname}}/stock?top=5
+
+
+### Get latest delivery
+GET {{hostname}}/deliveries?top=1

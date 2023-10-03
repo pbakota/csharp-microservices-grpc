@@ -1,0 +1,67 @@
+version: '3.7'
+
+services:
+  grpc-microservice-orders:
+    restart: unless-stopped
+    container_name: grpc-microservice-orders
+    image: grpc-microservice-orders:dev
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+      - ASPNETCORE_URLS=http://*:5000
+    volumes:
+      - ./data:/app/db
+    expose:
+      - 5000
+
+  grpc-microservice-payments:
+    restart: unless-stopped
+    container_name: grpc-microservice-payments
+    image: grpc-microservice-payments:dev
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+      - ASPNETCORE_URLS=http://*:5000
+    volumes:
+      - ./data:/app/db
+    expose:
+      - 5000
+
+  grpc-microservice-stock:
+    restart: unless-stopped
+    container_name: grpc-microservice-stock
+    image: grpc-microservice-stock:dev
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+      - ASPNETCORE_URLS=http://*:5000
+    volumes:
+      - ./data:/app/db
+    expose:
+      - 5000
+
+  grpc-microservice-delivery:
+    restart: unless-stopped
+    container_name: grpc-microservice-delivery
+    image: grpc-microservice-delivery:dev
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+      - ASPNETCORE_URLS=http://*:5000
+    volumes:
+      - ./data:/app/db
+    expose:
+      - 5000
+
+  grpc-microservice-gw:
+    restart: unless-stopped
+    container_name: grpc-microservice-gw
+    image: grpc-microservice-gw:dev
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+      - ASPNETCORE_URLS=http://*:5000
+    volumes:
+      - ./config/ocelot.json:/app/ocelot.json:r
+    ports:
+      - "0.0.0.0:5161:5000"
+    depends_on:
+      - grpc-microservice-orders
+      - grpc-microservice-payments
+      - grpc-microservice-stock
+      - grpc-microservice-delivery

@@ -1,0 +1,14 @@
+### Create order
+POST https://127.0.0.1:5001/orders
+Content-Type: application/json
+
+{
+    "Item": "Product 1",
+    "Quantity": 1,
+    "Amount": 3,
+    "PaymentMethod": "CreditCard",
+    "Address": "Foo bar 1"
+}
+
+### Get orders
+GET https://127.0.0.1:5001/orders?top=1

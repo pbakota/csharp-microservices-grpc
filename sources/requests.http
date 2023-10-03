@@ -1,0 +1,41 @@
+@hostname=https://localhost
+
+### Create order
+POST {{hostname}}:5001/orders
+Content-Type: application/json
+
+{
+    "Item": "Product 1",
+    "Quantity": 1,
+    "Amount": 3,
+    "PaymentMethod": "CreditCard",
+    "Address": "foo bar"
+}
+
+### Get orders
+GET {{hostname}}:5001/orders?top=1
+
+
+### Get latest payment
+GET {{hostname}}:5002/payments?top=1
+
+### Create stock item
+POST {{hostname}}:5003/stock
+Content-Type: application/json
+
+{
+    "Item": "Product 1",
+    "Quantity": 100
+}
+
+### Get single stock item
+GET {{hostname}}:5003/stock/Product%201
+
+### Get 5 stock items
+GET {{hostname}}:5003/stock?top=5
+
+
+### Get latest delivery
+GET {{hostname}}:5004/deliveries?top=1
+
+
